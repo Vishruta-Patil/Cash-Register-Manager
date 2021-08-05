@@ -1,0 +1,78 @@
+body{
+    padding:0;
+    margin:0;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+.main-container{
+    background-color: darkgreen;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 30px auto;
+    max-width: 600px;   
+    color: white; 
+    box-shadow: 15px 10px yellow;
+}
+
+h3{
+    font-size: 20px;
+    padding: 10px;
+}
+
+.amount-box, .cash-box {
+    margin-bottom: 5px;
+    padding:12px;
+    font-size: 23px;
+}
+
+label{
+    display: block;
+}
+
+input{
+    width: 80%;
+    padding: 13px;
+    margin:10px;
+}
+
+button{
+    padding: 8px 35px;
+    border-radius: 18px;
+    background-color: white;
+    font-size: 20px;
+    background-color: skyblue;
+}
+
+table {
+    margin:20px auto;
+    font-size:20px;   
+}
+
+th{
+    padding: 10px;
+    background-color: skyblue;
+    color: black;
+}
+
+td{
+    padding: 15px;
+    color:black
+}
+
+table,th,td{
+    border: 2px solid darkblue;
+    border-collapse: collapse;
+}
+
+caption{
+    margin-bottom: 15px;
+}
+
+.row1 {
+    background-color: white;
+}
+
+.row2{
+    background-color: skyblue;
+}
