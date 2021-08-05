@@ -2,40 +2,42 @@ const billAmount = document.querySelector("#amount");
 const cashGiven = document.querySelector("#cash");
 const submitbtn = document.querySelector(".submit-btn");
 const errorMsg = document.querySelector(".error-msg");
+const totalNoOfNotes = document.querySelectorAll(".no-of-notes");
+const nextButton = document.querySelector(".next-btn");
+const primaryContainer = document.getElementById("primary-container");
+const secondaryContainer = document.getElementById("secondary-container");
+
+var availableNotes = [2000,500,100,20,10,1];
 
 showMessage = (message) => {
     errorMsg.style.display = "block";
     errorMsg.innerHTML = message;
 }
 
+calculateChange = (changeAmount) => {
+    for(let i=0;i<availableNotes.length;i++) {
+        const totalNotes = Math.trunc(changeAmount / availableNotes[i]);
+        changeAmount = changeAmount % availableNotes[i];
+        totalNoOfNotes[i].innerText = totalNotes;
+    }
+}
 
-calculateChange = (c,a) => {
-    var changeAmount = c-a;
-    var twoThousandNote = 0, fiveHundredNote = 0, oneHundredNote = 0, twentyNote = 0, tenNote = 0, oneNote = 0;
 
-    twoThousandNote = Math.trunc(changeAmount / 2000);
-    twoThousand.innerText = twoThousandNote;
-    changeAmount = changeAmount % 2000;
+// Hide / Display Toggle
+primaryContainer.style.display = "none";
+secondaryContainer.style.display = "none";
 
-    fiveHundredNote = Math.trunc(changeAmount / 500);
-    fiveHundred.innerText = fiveHundredNote;
-    changeAmount = changeAmount % 500;
+nextButtonToggle = () => {
+    if (primaryContainer.style.display === "none") {
+        primaryContainer.style.display ="block";
+    }  
+    nextButton.style.display = "none";
+}
 
-    oneHundredNote = Math.trunc(changeAmount / 100);
-    oneHundred.innerText = oneHundredNote;
-    changeAmount = changeAmount % 100;
-
-    twentyNote = Math.trunc(changeAmount / 20);
-    twenty.innerText = twentyNote;
-    changeAmount = changeAmount % 20;
-
-    tenNote = Math.trunc(changeAmount / 10);
-    ten.innerText = tenNote;
-    changeAmount = changeAmount % 10;
-
-    oneNote = Math.trunc(changeAmount / 1);
-    one.innerText = oneNote;
-    changeAmount = changeAmount % 1;
+checkButtonToggle = () => {
+    if (secondaryContainer.style.display === "none") {
+        secondaryContainer.style.display ="block";
+    }  
 }
 
 
@@ -43,7 +45,8 @@ validateAmount = () => {
     errorMsg.style.display = "none";
     if(billAmount.value > 0) {
         if (cashGiven.value >= billAmount.value) {
-            calculateChange(cashGiven.value,billAmount.value)
+            const amountToBeReturn = cashGiven.value - billAmount.value;
+            calculateChange(amountToBeReturn);
         } 
         else{
             showMessage("Cash Amount must be greater or equal to the bill amount");
@@ -55,8 +58,7 @@ validateAmount = () => {
     }
 }
 
-
 submitbtn.addEventListener("click", validateAmount)
-
-
+nextButton.addEventListener("click", nextButtonToggle) ;
+submitbtn.addEventListener("click",checkButtonToggle);
 

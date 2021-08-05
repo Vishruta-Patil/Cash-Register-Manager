@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="main-container">
-        <h1>Cash Register Manager</h1>
+        <h1 class="heading">Cash Register Manager</h1>
         <h3>Enter the bill amount and cash given by the customer and know minimum number of notes to return.</h3>
 
         <div class="amount-box">
@@ -17,25 +17,34 @@
             <input type="number" id="amount">
         </div>
 
-        <div class="cash-box">
-            <label for="cash">Cash given</label>
-            <input type="number" name="" id="cash">
-        </div>
+        <button type="submit" class="next-btn">Next</button>
 
-        <button type="submit" class="submit-btn">Check</button>
+        
+            <div id="primary-container">
+            <div class="cash-box">
+                <label for="cash">Cash given</label>
+                <input type="number" name="" id="cash">
+            </div>
+
+            <button type="submit" class="submit-btn">Check</button>
+          </div>
+
+          <div id="secondary-container">
+
         <div class="error-msg"></div>
 
-        <div id="tables">
+        <div id="tables" style="overflow-x:auto;">
             <table>
                 <caption>Return Change:</caption>
                 <tr class="row1">
                     <th>no of notes</th>
-                    <td id="twoThousand"></td>
-                    <td id="fiveHundred"></td>
-                    <td id="oneHundred"></td>
-                    <td id="twenty"></td>
-                    <td id="ten"></td>
-                    <td id="one"></td>
+                    <td class="no-of-notes"></td>
+                    <td class="no-of-notes"></td>
+                    <td class="no-of-notes"></td>
+                    <td class="no-of-notes"></td>
+                    <td class="no-of-notes"></td>
+                    <td class="no-of-notes"></td>
+                   
 
                 </tr>
                 <tr class="row2">
@@ -49,9 +58,10 @@
                 </tr>
             </table>
         </div>
-
-    
     </div>
+
+    </div>
+    
 
 
     <script src="./app.js"></script>
