@@ -43,10 +43,11 @@ checkButtonToggle = () => {
 
 validateAmount = () => {
     errorMsg.style.display = "none";
-    if(billAmount.value > 0) {
-        if (cashGiven.value >= billAmount.value) {
+    if(Number(billAmount.value > 0)) {
+        if (Number(cashGiven.value) >= Number(billAmount.value)) {
             const amountToBeReturn = cashGiven.value - billAmount.value;
             calculateChange(amountToBeReturn);
+            //outputChange.style.display = "block";
         } 
         else{
             showMessage("Cash Amount must be greater or equal to the bill amount");
