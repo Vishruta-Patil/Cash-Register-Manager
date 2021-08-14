@@ -104,3 +104,25 @@ caption{
 .row2{
     background-color: var(--secondary-color);
 }
+
+@media only screen and (max-width: 500px) {
+    table{
+        font-size: 12px;
+    }
+    th {
+        padding: 7px;
+    }
+    td{
+        padding: 12px;
+    }
+    caption {
+        font-size: 18px;
+    }
+    label,input {
+        font-size: 15px;
+    }
+    input {
+        width:70%;
+        margin: 10px;
+    }
+}
